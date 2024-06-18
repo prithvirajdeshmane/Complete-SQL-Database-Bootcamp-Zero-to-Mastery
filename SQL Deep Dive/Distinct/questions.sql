@@ -25,5 +25,5 @@ select DISTINCT title from titles
 */
 
 -- SELECT * FROM country;
-select distinct lifeexpectancy from country where lifeexpectancy is not NULL order by lifeexpectancy
+select distinct lifeexpectancy from country where lifeexpectancy is not NULL
 
