@@ -4,7 +4,10 @@
 *  Database: Employees
 */
 
-CREATE VIEW "90-95" AS
+create view "90-95" as
+select * from employees
+where extract (year from hire_date) between 1990 and 1995
+order by hire_date;
 -- ...
 
 /*
@@ -13,5 +16,13 @@ CREATE VIEW "90-95" AS
 *  Database: Employees
 */
 
-CREATE VIEW "bigbucks" AS
+create or replace VIEW "bigbucks" AS
+select distinct 
+    s.emp_no,
+    e.first_name, 
+    e.last_name    
+from salaries as s
+join employees as e using (emp_no)
+where salary > 80000
+order by emp_no;
 -- ...
